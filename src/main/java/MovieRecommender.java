@@ -25,13 +25,13 @@ public class MovieRecommender {
             DataModel dataModel = new FileDataModel(new File("C:\\Users\\dzekson\\Downloads\\ml-latest-small\\ml-latest-small\\ratings2.csv"));
 
             // Writing recommendations to text file for test dataset.
-            File file = new File("C:\\Users\\dzekson\\Downloads\\ml-latest-small\\ml-latest-small\\recommendation.txt");
+            File file = new File("C:\\Users\\dzekson\\Downloads\\ml-latest-small\\ml-latest-small\\recommendation10.txt");
             file.createNewFile();
             FileWriter writer = new FileWriter(file);
 
             // Recommender system with collaborative filtering based on User
             UserSimilarity userSimilarity = new PearsonCorrelationSimilarity(dataModel);
-            UserNeighborhood userNeighborhood = new ThresholdUserNeighborhood(0.0, userSimilarity, dataModel);
+            UserNeighborhood userNeighborhood = new ThresholdUserNeighborhood(1.0, userSimilarity, dataModel);
             UserBasedRecommender recommender = new GenericUserBasedRecommender(dataModel, userNeighborhood, userSimilarity);
 
             //start benchmark
