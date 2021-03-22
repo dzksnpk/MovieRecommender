@@ -15,8 +15,8 @@ The treshold can be altered, from -1.0 to 1.0 (perfect similarity), according to
 You can also change number of items to recommend. 
 
 **Usage:**
-1. Download dataset (link above)
-2. Change the directory of _ratings.csv_ to your chosen folder
+1. Download dataset (link above) or fixed ratings.csv file from repository
+2. Change the directory of _ratings2.csv_ to your chosen folder
 3. Decide on the directory of recommendation.txt file which will be the output file
 3. Remove the timestamp value from _ratings.csv_ 
 4. Decide on treshold value from -1.0 to 1.0
