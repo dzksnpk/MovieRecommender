@@ -22,16 +22,16 @@ public class MovieRecommender {
         try{
 
             // FileDataModel class, suitable for small data sets - up to 10 million rows
-            DataModel dataModel = new FileDataModel(new File("C:\\Users\\dzekson\\Downloads\\ml-latest-small\\ml-latest-small\\ratings2.csv"));
+            DataModel dataModel = new FileDataModel(new File("[yourdirectory]\\ratings2.csv"));
 
             // Writing recommendations to text file for test dataset.
-            File file = new File("C:\\Users\\dzekson\\Downloads\\ml-latest-small\\ml-latest-small\\recommendation10.txt");
+            File file = new File("[yourdirectory]\\recommendation.txt");
             file.createNewFile();
             FileWriter writer = new FileWriter(file);
 
             // Recommender system with collaborative filtering based on User
             UserSimilarity userSimilarity = new PearsonCorrelationSimilarity(dataModel);
-            UserNeighborhood userNeighborhood = new ThresholdUserNeighborhood(1.0, userSimilarity, dataModel);
+            UserNeighborhood userNeighborhood = new ThresholdUserNeighborhood(0.2, userSimilarity, dataModel);
             UserBasedRecommender recommender = new GenericUserBasedRecommender(dataModel, userNeighborhood, userSimilarity);
 
             //start benchmark
